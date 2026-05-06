@@ -46,7 +46,7 @@ img {
   overflow: hidden;
   background:
     linear-gradient(rgba(3, 255, 0, 0.32), rgba(3, 255, 0, 0.12)),
-    url('/figma-assets/fire.png') center 900px / 1440px auto repeat-y,
+    url('/figma-assets/fire-1920.jpg') center 900px / 1440px auto repeat-y,
     #000;
 }
 
@@ -57,7 +57,7 @@ img {
   pointer-events: none;
   z-index: 20;
   opacity: 0.08;
-  background-image: url('/figma-assets/noise.png');
+  background-image: url('/figma-assets/noise-191.jpg');
   mix-blend-mode: soft-light;
 }
 
@@ -119,14 +119,14 @@ img {
 .hero-bg.city {
   left: -11px;
   right: -12px;
-  background: url('/figma-assets/image14.png') center / cover no-repeat;
+  background: url('/figma-assets/image14-1400.jpg') center / cover no-repeat;
   filter: grayscale(1) brightness(0.7);
   opacity: 0.45;
 }
 
 .hero-bg.fire {
   inset: -2px -24px -19px -23px;
-  background: url('/figma-assets/fire.png') center top / cover no-repeat;
+  background: url('/figma-assets/fire-1920.jpg') center top / cover no-repeat;
   mix-blend-mode: screen;
 }
 
@@ -278,7 +278,7 @@ img {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('/figma-assets/noise.png') top left / 191px 191px;
+  background: url('/figma-assets/noise-191.jpg') top left / 191px 191px;
   opacity: 0.5;
   mix-blend-mode: soft-light;
   border-radius: inherit;
@@ -350,7 +350,7 @@ img {
   z-index: -1;
   background:
     linear-gradient(rgba(0, 255, 0, 0.22), rgba(0, 255, 0, 0.22)),
-    url('/figma-assets/fire.png') center / cover;
+    url('/figma-assets/fire-1920.jpg') center / cover;
   opacity: 0.92;
 }
 
@@ -508,7 +508,7 @@ img {
   inset: 0;
   background:
     linear-gradient(rgba(5, 255, 0, 0.45), rgba(5, 255, 0, 0.45)),
-    url('/figma-assets/vacancy-bg.png') center / cover no-repeat;
+    url('/figma-assets/vacancy-bg-1920.jpg') center / cover no-repeat;
   mix-blend-mode: normal;
 }
 
@@ -696,7 +696,7 @@ img {
   inset: 0;
   background:
     linear-gradient(rgba(5, 255, 0, 0.67), rgba(5, 255, 0, 0.67)),
-    url('/figma-assets/footer-bg.png') center 68% / cover no-repeat;
+    url('/figma-assets/footer-bg-1400.jpg') center 68% / cover no-repeat;
   filter: contrast(1.1);
 }
 

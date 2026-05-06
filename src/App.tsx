@@ -136,7 +136,11 @@ function App() {
         </h2>
         <div className="team-grid">
           <div className="team-photo">
-            <img src={asset('headphones.png')} alt="Команда BLUFF" />
+            <img
+              src={asset('headphones-1200.jpg')}
+              alt="Команда BLUFF"
+              decoding="async"
+            />
             <div />
           </div>
           <div className="team-copy">
@@ -169,20 +173,26 @@ function App() {
           </p>
           <a className="job-link" href="https://t.me/Mami_HR_bot" target="_blank" rel="noreferrer">
             Media Buyer (Google, Facebook, TT)
-            <img src={asset('arrow-small.png')} alt="" />
+            <img src={asset('arrow-small.png')} alt="" loading="lazy" decoding="async" />
           </a>
           <div className="button-row">
             <a className="green-button" href="https://t.me/Mami_HR_bot" target="_blank" rel="noreferrer">
               Submit CV
             </a>
             <a className="text-link" href="#вакансии">
-              See all <img src={asset('arrow-small.png')} alt="" />
+              See all <img src={asset('arrow-small.png')} alt="" loading="lazy" decoding="async" />
             </a>
           </div>
           <p className="vacancy-note">
             Нет подходящей позиции? Отправляй свое резюме и желаемую должность нашему HR.
           </p>
-          <img className="telegram-float" src={asset('telegram-logo.png')} alt="" />
+          <img
+            className="telegram-float"
+            src={asset('telegram-logo.png')}
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
         </div>
       </section>
 
@@ -191,14 +201,20 @@ function App() {
           Структура <span>BLUFF</span>
         </h2>
         <div className="structure-map">
-          <img className="structure-core" src={asset('structure-center.svg')} alt="" />
+          <img
+            className="structure-core"
+            src={asset('structure-center.svg')}
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
           {teams.map((team, index) => (
             <button className={`team-pill team-pill-${index + 1}`} key={team} type="button">
               {team}
             </button>
           ))}
-          <img className="sticker sticker-a" src={asset('sticker-1.svg')} alt="" />
-          <img className="sticker sticker-b" src={asset('sticker-2.svg')} alt="" />
+          <img className="sticker sticker-a" src={asset('sticker-1.svg')} alt="" loading="lazy" />
+          <img className="sticker sticker-b" src={asset('sticker-2.svg')} alt="" loading="lazy" />
         </div>
       </section>
 
@@ -212,15 +228,15 @@ function App() {
           на связи
         </h2>
         <div className="footer-info">
-          <img src={asset('frame68.svg')} alt="BLUFF" />
+          <img src={asset('frame68.svg')} alt="BLUFF" loading="lazy" decoding="async" />
           <a href="mailto:bluff@example.com">bluff@example.com</a>
           <a href="https://t.me/Mami_HR_bot" target="_blank" rel="noreferrer">
             Написать HR
           </a>
           <div className="socials">
-            <img src={asset('telegram.png')} alt="Telegram" />
-            <img src={asset('linkedin.png')} alt="LinkedIn" />
-            <img src={asset('instagram.png')} alt="Instagram" />
+            <img src={asset('telegram.png')} alt="Telegram" loading="lazy" decoding="async" />
+            <img src={asset('linkedin.png')} alt="LinkedIn" loading="lazy" decoding="async" />
+            <img src={asset('instagram.png')} alt="Instagram" loading="lazy" decoding="async" />
           </div>
         </div>
       </footer>
