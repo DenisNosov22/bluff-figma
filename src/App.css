@@ -1,0 +1,987 @@
+:root {
+  --green: #01ff00;
+  --green-soft: rgba(1, 255, 0, 0.56);
+  --white: #ffffff;
+  --black: #000000;
+  --glass: rgba(255, 255, 255, 0.14);
+  --glass-strong: rgba(255, 255, 255, 0.2);
+  --container: min(1360px, calc(100vw - 80px));
+  --display-font: "Druk Wide Cyr", "Arial Black", Impact, sans-serif;
+  --wide-font: "Benzin-Regular", "Arial Black", Arial, sans-serif;
+  --body-font: "Halvar Breitschrift", "Inter", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--black);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: var(--white);
+  background: var(--black);
+  font-family: var(--body-font);
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.site-shell {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(3, 255, 0, 0.32), rgba(3, 255, 0, 0.12)),
+    url('/figma-assets/fire.png') center 900px / 1440px auto repeat-y,
+    #000;
+}
+
+.site-shell::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 20;
+  opacity: 0.08;
+  background-image: url('/figma-assets/noise.png');
+  mix-blend-mode: soft-light;
+}
+
+.section-pad {
+  position: relative;
+  width: var(--container);
+  margin: 0 auto;
+}
+
+.topbar {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  z-index: 10;
+  width: var(--container);
+  transform: translateX(-50%);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.brand {
+  width: 65px;
+}
+
+.topbar nav {
+  display: flex;
+  gap: 60px;
+  padding-top: 15px;
+  font-family: var(--wide-font);
+  font-size: 16px;
+  line-height: 1;
+}
+
+.topbar a {
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.topbar nav a:hover,
+.topbar nav a:focus-visible {
+  color: var(--green);
+  transform: translateY(-2px);
+}
+
+.hero-section {
+  position: relative;
+  height: 928px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-bg.city {
+  left: -11px;
+  right: -12px;
+  background: url('/figma-assets/image14.png') center / cover no-repeat;
+  filter: grayscale(1) brightness(0.7);
+  opacity: 0.45;
+}
+
+.hero-bg.fire {
+  inset: -2px -24px -19px -23px;
+  background: url('/figma-assets/fire.png') center top / cover no-repeat;
+  mix-blend-mode: screen;
+}
+
+.green-blend {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: #00ff00;
+  mix-blend-mode: color;
+}
+
+.hero-emblem {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: -19px;
+  width: 608px;
+  height: 629px;
+  transform: translateX(-50%);
+  opacity: 0.6;
+}
+
+.hero-logo {
+  position: absolute;
+  z-index: 3;
+  top: 202px;
+  left: 50%;
+  width: 633px;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 0 30px rgba(1, 255, 0, 0.28));
+  animation: logoPulse 5s ease-in-out infinite;
+}
+
+.hero-copy {
+  position: absolute;
+  z-index: 4;
+  top: 736px;
+  width: 390px;
+  font-size: 16px;
+  line-height: 1.4;
+  text-transform: uppercase;
+  text-indent: 42px;
+}
+
+.hero-copy-left {
+  left: calc(50% - 394px);
+}
+
+.hero-copy-right {
+  left: calc(50% + 136px);
+  width: 334px;
+}
+
+.glass-button {
+  position: absolute;
+  z-index: 5;
+  top: 822px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 250px;
+  height: 85px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 60px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 90px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(19px);
+  font-family: var(--wide-font);
+  font-size: 16px;
+  text-transform: uppercase;
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.glass-button:hover,
+.glass-button:focus-visible {
+  color: #000;
+  background: var(--green);
+  transform: translateX(-50%) translateY(-3px);
+}
+
+.about-section {
+  min-height: 558px;
+  padding-top: 126px;
+  display: grid;
+  grid-template-columns: 1fr 748px;
+  column-gap: 64px;
+}
+
+.section-title,
+.about-section h2,
+.team-section h2,
+.vacancies-section h2,
+.structure-section h2,
+.footer-section h2 {
+  margin: 0;
+  font-family: var(--display-font);
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1.25;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.section-title {
+  grid-column: 1;
+  font-size: 80px;
+  color: var(--green);
+}
+
+.about-copy {
+  grid-column: 1;
+  width: 506px;
+  display: grid;
+  gap: 55px;
+  margin-top: 18px;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.about-copy p,
+.team-copy p,
+.chat-text p,
+.vacancy-content p {
+  margin: 0;
+}
+
+.benefit-card {
+  position: relative;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  height: 334px;
+  margin-top: 49px;
+  padding: 60px 44px;
+  border: 1px solid #fff;
+  border-radius: 50px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 34px;
+  row-gap: 30px;
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+}
+
+.benefit-card::before,
+.team-pill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('/figma-assets/noise.png') top left / 191px 191px;
+  opacity: 0.5;
+  mix-blend-mode: soft-light;
+  border-radius: inherit;
+}
+
+.benefit {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  gap: 10px;
+  align-items: start;
+  font-family: var(--wide-font);
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.benefit span {
+  width: 21px;
+  height: 31px;
+  margin-top: -13px;
+  background: var(--green);
+  clip-path: polygon(50% 0, 100% 36%, 68% 36%, 68% 100%, 32% 100%, 32% 36%, 0 36%);
+}
+
+.card-sticker {
+  position: absolute;
+  right: -21px;
+  bottom: -23px;
+  width: 140px;
+}
+
+.ticker {
+  margin: 40px 0 54px;
+  overflow: hidden;
+  display: grid;
+  gap: 28px;
+  font-family: var(--display-font);
+  font-size: 45px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #ebebeb;
+  white-space: nowrap;
+}
+
+.ticker div {
+  animation: tickerMove 26s linear infinite;
+}
+
+.ticker div:nth-child(2) {
+  animation-direction: reverse;
+}
+
+.chat-section {
+  min-height: 678px;
+  padding: 74px 0 86px;
+  display: grid;
+  grid-template-columns: 610px 1fr;
+  gap: 84px;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  padding-inline: 32px;
+}
+
+.chat-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(rgba(0, 255, 0, 0.22), rgba(0, 255, 0, 0.22)),
+    url('/figma-assets/fire.png') center / cover;
+  opacity: 0.92;
+}
+
+.chat-phone {
+  position: relative;
+  height: 458px;
+  overflow: hidden;
+  border-radius: 6px;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(1, 255, 0, 0.22), transparent 44%),
+    rgba(0, 0, 0, 0.28);
+}
+
+.phone-rail {
+  position: absolute;
+  left: 20px;
+  top: 84px;
+  display: grid;
+  gap: 14px;
+}
+
+.phone-rail span {
+  width: max-content;
+  padding: 8px 18px;
+  border-radius: 20px;
+  background: rgba(50, 50, 50, 0.9);
+  font-size: 13px;
+}
+
+.messages {
+  position: absolute;
+  left: 96px;
+  right: 38px;
+  top: 58px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.messages b {
+  color: var(--green);
+  font-size: 21px;
+}
+
+.messages p {
+  width: max-content;
+  max-width: 78%;
+  margin: 0;
+  padding: 9px 19px;
+  border-radius: 20px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.incoming {
+  background: #323232;
+}
+
+.outgoing {
+  align-self: flex-end;
+  background: #1464ae;
+}
+
+.chat-text h2 {
+  margin: 0 0 18px;
+  font-family: var(--display-font);
+  font-size: 70px;
+  font-style: italic;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.chat-text h2 span {
+  color: var(--green);
+}
+
+.chat-text p {
+  max-width: 640px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.skull-sticker {
+  position: absolute;
+  right: 130px;
+  bottom: 56px;
+  width: 68px;
+  transform: rotate(-18deg);
+}
+
+.team-section {
+  min-height: 776px;
+  padding-top: 120px;
+}
+
+.team-section h2 {
+  max-width: 1355px;
+  margin-bottom: 50px;
+  font-size: 60px;
+  line-height: 100px;
+}
+
+.team-section h2 span,
+.vacancies-section h2,
+.structure-section h2 span {
+  color: var(--green);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: 605px 1fr;
+  gap: 70px;
+}
+
+.team-photo {
+  position: relative;
+  height: 526px;
+  overflow: hidden;
+}
+
+.team-photo img {
+  width: 674px;
+  height: 1011px;
+  object-fit: cover;
+  object-position: center top;
+  transform: translate(6px, -164px);
+}
+
+.team-photo div {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 255, 0, 0.6);
+  mix-blend-mode: soft-light;
+}
+
+.team-copy {
+  padding-top: 3px;
+  display: grid;
+  gap: 30px;
+  max-width: 643px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.vacancies-section {
+  width: 100%;
+  min-height: 736px;
+  margin-top: 80px;
+  padding: 59px 0;
+  overflow: hidden;
+}
+
+.vacancy-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(5, 255, 0, 0.45), rgba(5, 255, 0, 0.45)),
+    url('/figma-assets/vacancy-bg.png') center / cover no-repeat;
+  mix-blend-mode: normal;
+}
+
+.vacancy-content {
+  position: relative;
+  z-index: 1;
+  width: var(--container);
+  margin: 0 auto;
+}
+
+.vacancies-section h2 {
+  max-width: 1360px;
+  font-size: 42px;
+  line-height: 70px;
+}
+
+.vacancies-section h2 span {
+  color: #fff;
+}
+
+.vacancy-content > p {
+  margin-top: 38px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.job-link {
+  margin-top: 74px;
+  height: 56px;
+  border-bottom: 1px solid #e2e2e2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 0 10px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  text-decoration: underline;
+}
+
+.job-link img {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+}
+
+.button-row {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.green-button {
+  width: 228px;
+  height: 51px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: var(--green);
+  color: #000;
+  font-family: var(--wide-font);
+  font-size: 16px;
+  text-transform: uppercase;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.green-button:hover,
+.green-button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 0 34px rgba(1, 255, 0, 0.55);
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+}
+
+.text-link img {
+  width: 20px;
+}
+
+.vacancy-note {
+  margin-top: 50px;
+}
+
+.telegram-float {
+  position: absolute;
+  right: 246px;
+  bottom: 9px;
+  width: 60px;
+}
+
+.structure-section {
+  min-height: 792px;
+  padding-top: 68px;
+}
+
+.structure-section h2 {
+  font-size: 80px;
+  line-height: 100px;
+}
+
+.structure-map {
+  position: relative;
+  height: 564px;
+  margin-top: 44px;
+}
+
+.structure-core {
+  position: absolute;
+  left: 50%;
+  top: 66px;
+  width: 431px;
+  height: 431px;
+  transform: translateX(-50%) scale(2.6);
+  pointer-events: none;
+}
+
+.team-pill {
+  position: absolute;
+  width: 434px;
+  height: 132px;
+  border: 1px solid #fff;
+  border-radius: 50px;
+  background: var(--glass);
+  color: #fff;
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  font-family: var(--body-font);
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 30px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.team-pill:hover,
+.team-pill:focus-visible {
+  transform: translateY(-5px);
+  background: rgba(1, 255, 0, 0.18);
+  box-shadow: 0 0 34px rgba(1, 255, 0, 0.3);
+}
+
+.team-pill-1 { left: 107px; top: 0; }
+.team-pill-2 { right: 107px; top: 0; }
+.team-pill-3 { left: 0; top: 182px; }
+.team-pill-4 { right: 0; top: 182px; }
+.team-pill-5 { left: 107px; top: 364px; }
+.team-pill-6 { right: 107px; top: 364px; }
+
+.sticker {
+  position: absolute;
+  z-index: 2;
+  width: 92px;
+}
+
+.sticker-a {
+  right: 86px;
+  top: -44px;
+}
+
+.sticker-b {
+  left: -8px;
+  top: 98px;
+  transform: rotate(-10deg);
+}
+
+.footer-section {
+  width: 100%;
+  min-height: 424px;
+  padding: 17px 40px 45px;
+  display: grid;
+  grid-template-columns: 1fr 293px;
+  gap: 80px;
+  overflow: hidden;
+}
+
+.footer-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(5, 255, 0, 0.67), rgba(5, 255, 0, 0.67)),
+    url('/figma-assets/footer-bg.png') center 68% / cover no-repeat;
+  filter: contrast(1.1);
+}
+
+.footer-section h2,
+.footer-info {
+  position: relative;
+  z-index: 1;
+}
+
+.footer-section h2 {
+  max-width: 820px;
+  font-size: 100px;
+  line-height: 120px;
+}
+
+.footer-section mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 260px;
+  height: 97px;
+  border-radius: 20px;
+  background: var(--green);
+  color: #000;
+  font: italic 700 60px/80px var(--display-font);
+}
+
+.footer-info {
+  align-self: start;
+  margin-top: 10px;
+  display: grid;
+  gap: 22px;
+  justify-items: start;
+  font-family: var(--wide-font);
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.footer-info > img {
+  width: 95px;
+}
+
+.socials {
+  display: flex;
+  gap: 12px;
+}
+
+.socials img {
+  width: 24px;
+  height: 24px;
+}
+
+@keyframes tickerMove {
+  from { transform: translateX(-8%); }
+  to { transform: translateX(-58%); }
+}
+
+@keyframes logoPulse {
+  0%, 100% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.025); }
+}
+
+@media (max-width: 1100px) {
+  :root {
+    --container: min(100vw - 32px, 720px);
+  }
+
+  .topbar {
+    top: 14px;
+    align-items: center;
+  }
+
+  .topbar nav {
+    display: none;
+  }
+
+  .hero-section {
+    height: 760px;
+  }
+
+  .hero-logo {
+    top: 190px;
+    width: min(86vw, 560px);
+  }
+
+  .hero-emblem {
+    bottom: 48px;
+    width: min(80vw, 480px);
+    height: auto;
+  }
+
+  .hero-copy {
+    top: auto;
+    bottom: 118px;
+    width: min(42vw, 300px);
+    font-size: 13px;
+  }
+
+  .hero-copy-left {
+    left: 24px;
+  }
+
+  .hero-copy-right {
+    right: 24px;
+    left: auto;
+  }
+
+  .glass-button {
+    top: auto;
+    bottom: 36px;
+    height: 64px;
+  }
+
+  .about-section,
+  .team-grid,
+  .chat-section,
+  .footer-section {
+    grid-template-columns: 1fr;
+  }
+
+  .about-section {
+    padding-top: 72px;
+    min-height: auto;
+  }
+
+  .section-title,
+  .structure-section h2 {
+    font-size: clamp(42px, 10vw, 72px);
+  }
+
+  .about-copy {
+    width: 100%;
+  }
+
+  .benefit-card {
+    grid-column: 1;
+    grid-row: auto;
+    height: auto;
+    margin-top: 40px;
+  }
+
+  .ticker {
+    font-size: 32px;
+  }
+
+  .chat-section {
+    width: var(--container);
+    gap: 40px;
+    padding: 44px 20px;
+  }
+
+  .team-section h2,
+  .vacancies-section h2 {
+    font-size: clamp(34px, 7vw, 54px);
+    line-height: 1.25;
+  }
+
+  .team-grid {
+    gap: 34px;
+  }
+
+  .team-photo {
+    width: min(605px, 100%);
+  }
+
+  .vacancy-content {
+    width: var(--container);
+  }
+
+  .structure-map {
+    height: auto;
+    display: grid;
+    gap: 14px;
+    padding-top: 260px;
+  }
+
+  .structure-core {
+    top: 8px;
+    width: 220px;
+    height: 220px;
+    transform: translateX(-50%) scale(2);
+  }
+
+  .team-pill {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: 82px;
+    border-radius: 28px;
+  }
+
+  .sticker {
+    display: none;
+  }
+
+  .footer-section {
+    padding-inline: 24px;
+  }
+
+  .footer-section h2 {
+    font-size: clamp(48px, 12vw, 90px);
+    line-height: 1.08;
+  }
+
+  .footer-section mark {
+    min-width: 160px;
+    height: 64px;
+    font-size: 38px;
+    line-height: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-section {
+    height: 690px;
+  }
+
+  .hero-logo {
+    top: 206px;
+    width: 92vw;
+  }
+
+  .hero-emblem {
+    bottom: 108px;
+    width: 92vw;
+  }
+
+  .hero-copy {
+    display: none;
+  }
+
+  .glass-button {
+    min-width: 210px;
+  }
+
+  .benefit-card {
+    grid-template-columns: 1fr;
+    padding: 34px 26px;
+    border-radius: 30px;
+  }
+
+  .chat-phone {
+    height: 430px;
+  }
+
+  .messages {
+    left: 56px;
+    right: 14px;
+  }
+
+  .messages p,
+  .messages b {
+    font-size: 15px;
+  }
+
+  .chat-text h2 {
+    font-size: 44px;
+  }
+
+  .team-section {
+    padding-top: 76px;
+  }
+
+  .team-photo {
+    height: 360px;
+  }
+
+  .team-photo img {
+    transform: translate(-20px, -120px);
+  }
+
+  .job-link {
+    height: auto;
+    padding-bottom: 16px;
+    font-size: 19px;
+  }
+
+  .button-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .telegram-float {
+    right: 24px;
+    bottom: 24px;
+  }
+}
