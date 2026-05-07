@@ -962,10 +962,11 @@ img {
 
   .team-photo {
     height: 360px;
+    background: url('/figma-assets/headphones-1200.jpg') 58% 38% / cover no-repeat;
   }
 
   .team-photo img {
-    transform: translate(-20px, -120px);
+    display: none;
   }
 
   .job-link {

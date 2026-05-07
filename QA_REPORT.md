@@ -8,8 +8,8 @@
 
 ## Visual QA
 
-- Desktop screenshot: captured locally with Playwright before and after optimization.
-- Mobile screenshot: captured locally with Playwright before optimization.
+- Desktop screenshot: captured locally with Playwright at `/tmp/bluff-desktop.png`.
+- Mobile screenshot: captured locally with Playwright at `/tmp/bluff-mobile-fixed2.png`.
 - Desktop viewport: `1440 x 1200`, full page
 - Mobile viewport: `390 x 900`, full page
 
@@ -18,5 +18,6 @@
 - Main assets render locally after normalizing Figma SVG exports to `.svg` filenames.
 - Desktop and mobile pages are nonblank, scrollable, and responsive.
 - Header/nav, CTA buttons, vacancy links, and department pills have interactive hover/focus states.
-- Final pixel-perfect comparison against Figma could not be repeated because Figma MCP reached the Starter plan call limit.
+- Figma MCP access was confirmed for source node `1625:455`.
+- Mobile team image crop was adjusted after screenshot QA so the exported photo appears instead of an empty green crop.
 - Performance pass reduced deployed assets from about `27 MB` to about `1.2 MB`.

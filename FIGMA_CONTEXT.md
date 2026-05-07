@@ -1,8 +1,8 @@
 # Figma Context
 
-- Source file: `Q1GjAcYGxjKyR16ajj21Z8`
-- User URL: `https://www.figma.com/design/Q1GjAcYGxjKyR16ajj21Z8/Untitled--Copy-?node-id=1625-454&t=FCjFkhWuBdledmla-1`
-- Provided node: `1625:454`
+- Source file: `OdOSF8Ty9MMiWklLNFtrz0`
+- User URL: `https://www.figma.com/design/OdOSF8Ty9MMiWklLNFtrz0/Untitled--Copy-?node-id=1625-455&m=dev`
+- Provided node: `1625:455`
 - Implemented frame: `1625:455` / `Frame 67`
 - Frame size: `1440 x 5588`
 - Scope: desktop and mobile landing page for BLUFF.
@@ -18,6 +18,6 @@
 
 Exported assets are stored under `public/figma-assets/`.
 
-## Limitation
+## Current Access
 
-Figma MCP hit the Starter plan tool-call limit after the main design context and assets were extracted. The implementation uses the extracted frame data and local assets. Further exact Figma re-inspection may require a refreshed/expanded Figma MCP limit or additional exports from the user.
+Figma MCP successfully returned design context and screenshot for `1625:455` on 2026-05-07.
